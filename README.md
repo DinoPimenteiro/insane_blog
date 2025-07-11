@@ -1,0 +1,1 @@
+Para rodar este projeto em sua máquina basta realizar o comando git clone normalmente e, já dentro da pastado projeto, realizar o comando npm init para gerar os módulos necessários para o projeto funcionar corretamente. Certifique-se de possuir o Node Package Manager instalado (npm). </>
