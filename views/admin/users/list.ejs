@@ -1,0 +1,41 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+
+<div class="container">
+  <hr>
+  <div class="card">
+    <div class="card-header">
+      <h1>Usuários</h1>
+    
+      <a href="/admin/user/create" class="btn btn-success"> 
+        Criar novo usuário
+      </a>
+      
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th> ID </th>
+            <th> Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% users.forEach(user => { %>
+            
+            <th>
+              <%= user.id %>
+            </th>
+            <th>
+              <%= user.email%>
+            </th>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+<%- include('../../partials/footer.ejs') %>

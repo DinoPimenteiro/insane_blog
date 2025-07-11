@@ -1,0 +1,45 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>  <!-- Os dois pontos voltam um diretório-->
+<div class="container">
+    <br>
+    <div class="card">
+        <div class="card-header">
+            <h2>Edição de Artigo</h2>
+        </div>
+        <div class="card-body">
+            <h4> Título antigo: <%= article.title %></h4>
+            <br>
+            <form method="post" action="/articles/update/<%= article.id %>">
+              <h4> Categoria: </h4>
+                <select name="category" class="form-control">
+                  <% categories.forEach(category => { %>
+                    <% if (category.id == article.categoryId) { %>
+                       <option value="<%= category.id%>" selected> <%= category.title %></option>
+                    <% } else { %>
+                       <option value="<%= category.id%>"> <%= category.title %></option>
+                    <% } %>
+                  <%})%>
+                </select>
+                <br>
+                <input class="form-control" type="text" name="title" placeholder="<%= article.title%>">
+                <br>
+                <textarea name="body" id="article" class="form-control"> <%= article.body%></textarea>
+                <button class="btn btn-success"> Publicar </button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('../../partials/footer.ejs') %>
+
+<script src="/tinymce/tinymce.min.js"></script>
+
+<script>
+  tinymce.init({
+  selector: "#article",
+  language: "pt_BR",
+  plugins: 'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons',
+  toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media table emoticons fullscreen preview',
+  menubar: 'file edit view insert format tools table help'
+});
+
+</script>
